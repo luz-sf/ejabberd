@@ -3131,6 +3131,9 @@ can_change_ra(owner, _FRole, admin, _TRole, affiliation,
 can_change_ra(owner, _FRole, owner, _TRole, affiliation,
 	      _Affiliation, _ServiceAf) ->
     check_owner;
+can_change_ra(admin, _FRole, admin,
+	      _TRole, affiliation, none, none) ->
+    true; % Allow a admin that joined the room to de-member himself
 can_change_ra(member, participant, member,
 	      participant, affiliation, none, none) ->
     true; % Allow a member that joined the room to de-member himself
